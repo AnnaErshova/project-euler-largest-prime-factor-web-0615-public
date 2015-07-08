@@ -1,19 +1,4 @@
-# Enter your procedural solution here!
-
-# check for all numbers the number divides by
-# select all prime ones
-# find max
-# 600851475143
-
-=begin
-class Fixnum
-  def prime?
-    ('1' * self) !~ /^1?$|^(11+?)\1+$/
-  end
-end
-
-10.prime?
-=end
+# for input: 600851475143
 
 # starting from the number, start decrementing and checking for prime numbers
 # then, take the first number that comes along and see if the number divides by it
