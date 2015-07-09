@@ -5,12 +5,13 @@
 # if not, repeat
 
 def largest_prime_factor(input)
-  prime_array = Array.new
-  input.downto(1).each do |x|
-    if (('1' * x) !~ /^1?$|^(11+?)\1+$/) && (input%x == 0) # make sure to use ==
-      prime_array << x
-      break if prime_array.length == 1
-    end
-  end # end downtoi
-  prime_array.pop
+  div = 2
+  (input%div==0 ? input/=div : div+=1) until is_prime?(input)
+  input
 end
+
+def is_prime?(input)
+  (2..(input**0.5)).none?{|div| input%div==0 }
+end
+
+

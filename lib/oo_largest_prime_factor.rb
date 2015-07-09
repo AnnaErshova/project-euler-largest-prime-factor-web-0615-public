@@ -1,20 +1,21 @@
 # Enter your object-oriented solution here!
-
+require 'pry'
 class LargestPrimeFactor
 
   def initialize(input)
     @input = input
+    @div = 2
   end
 
   def number
-    prime_array = Array.new
-    @input.downto(1).each do |x|
-      if (('1' * x) !~ /^1?$|^(11+?)\1+$/) && (@input%x == 0) # make sure to use ==
-        prime_array << x
-        break if prime_array.length == 1
-      end
-    end # end downtoi
-    prime_array.pop
+    # binding.pry
+    (@input % @div==0 ? @input/=@div : @div+=1) until is_prime?
+    @input
+  end
+
+  def is_prime?
+    # binding.pry
+    (@div..(@input**0.5)).none? {|num| @input%num==0 } # or use Math module for sqrt
   end
 
 end # end class
